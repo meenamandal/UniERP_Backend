@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -17,8 +17,8 @@ namespace ERP.Host.Migrations
                     Name = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     Industry = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     Website = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
-                    Description = table.Column<string>(type: "varchar(2000)", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
-                    LogoUrl = table.Column<string>(type: "varchar(1000)", maxLength: 1000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "longtext", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    LogoUrl = table.Column<string>(type: "longtext", maxLength: 1000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     ContactPersonName = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     ContactEmail = table.Column<string>(type: "varchar(320)", maxLength: 320, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     ContactMobile = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
@@ -50,12 +50,12 @@ namespace ERP.Host.Migrations
                     CompanyId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     CompanyName = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     JobRole = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
-                    JobDescription = table.Column<string>(type: "varchar(5000)", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    JobDescription = table.Column<string>(type: "longtext", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     Location = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     PackageLpa = table.Column<decimal>(type: "decimal(10,2)", nullable: false),
                     MinCgpa = table.Column<decimal>(type: "decimal(4,2)", nullable: false, defaultValue: 0m),
                     MaxBacklogs = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
-                    EligibleBranches = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    EligibleBranches = table.Column<string>(type: "longtext", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     DriveDate = table.Column<DateOnly>(type: "date", nullable: true),
                     RegistrationDeadline = table.Column<DateOnly>(type: "date", nullable: true),
                     Status = table.Column<int>(type: "int", nullable: false),
@@ -104,7 +104,7 @@ namespace ERP.Host.Migrations
                     RegisteredAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
                     InterviewScheduledAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    InterviewNotes = table.Column<string>(type: "varchar(2000)", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    InterviewNotes = table.Column<string>(type: "longtext", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     OfferLpa = table.Column<decimal>(type: "decimal(10,2)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -145,7 +145,7 @@ namespace ERP.Host.Migrations
                     Status = table.Column<int>(type: "int", nullable: false),
                     IssuedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     ConfirmedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    OfferLetterBlobUrl = table.Column<string>(type: "varchar(1000)", maxLength: 1000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    OfferLetterBlobUrl = table.Column<string>(type: "longtext", maxLength: 1000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
@@ -190,3 +190,4 @@ namespace ERP.Host.Migrations
         }
     }
 }
+

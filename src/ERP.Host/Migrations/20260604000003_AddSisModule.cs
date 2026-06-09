@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -29,8 +29,8 @@ namespace ERP.Host.Migrations
                     DateOfBirth = table.Column<DateOnly>(type: "date", nullable: false),
                     Gender = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     BloodGroup = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
-                    PermanentAddress = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
-                    CurrentAddress = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    PermanentAddress = table.Column<string>(type: "longtext", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    CurrentAddress = table.Column<string>(type: "longtext", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     Category = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     Semester = table.Column<int>(type: "int", nullable: false, defaultValue: 1),
                     IsActive = table.Column<bool>(type: "tinyint(1)", nullable: false),
@@ -63,7 +63,7 @@ namespace ERP.Host.Migrations
                     StudentId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     DocumentType = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     OriginalFileName = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
-                    BlobUrl = table.Column<string>(type: "varchar(1000)", maxLength: 1000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
+                    BlobUrl = table.Column<string>(type: "longtext", maxLength: 1000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     IsEncrypted = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     FileSizeBytes = table.Column<long>(type: "bigint", nullable: false),
                     UploadedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -134,3 +134,4 @@ namespace ERP.Host.Migrations
         }
     }
 }
+

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -45,7 +45,7 @@ namespace ERP.Host.Migrations
                     RawScore = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
                     WeightedScore = table.Column<decimal>(type: "decimal(6,2)", nullable: false),
                     Weight = table.Column<decimal>(type: "decimal(4,2)", nullable: false),
-                    DataJson = table.Column<string>(type: "varchar(10000)", maxLength: 10000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
+                    DataJson = table.Column<string>(type: "longtext", maxLength: 10000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     IsManualOverride = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -114,3 +114,4 @@ namespace ERP.Host.Migrations
         }
     }
 }
+

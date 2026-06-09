@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -16,7 +16,7 @@ namespace ERP.Host.Migrations
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Authority = table.Column<int>(type: "int", nullable: false),
                     Title = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
-                    Description = table.Column<string>(type: "varchar(2000)", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "longtext", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     DueDate = table.Column<DateOnly>(type: "date", nullable: false),
                     ResponsiblePersonId = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     ResponsiblePersonName = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
@@ -24,7 +24,7 @@ namespace ERP.Host.Migrations
                     CompletedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     CompletedBy = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     SubmissionReference = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
-                    Notes = table.Column<string>(type: "varchar(2000)", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    Notes = table.Column<string>(type: "longtext", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     AcademicYear = table.Column<int>(type: "int", nullable: false),
                     IsRecurring = table.Column<bool>(type: "tinyint(1)", nullable: false),
                     RecurrencePattern = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
@@ -94,7 +94,7 @@ namespace ERP.Host.Migrations
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     ComplianceItemId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    Message = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
+                    Message = table.Column<string>(type: "longtext", maxLength: 500, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     SentAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     RecipientUserId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     IsRead = table.Column<bool>(type: "tinyint(1)", nullable: false),
@@ -127,3 +127,4 @@ namespace ERP.Host.Migrations
         }
     }
 }
+

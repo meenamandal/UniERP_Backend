@@ -505,6 +505,15 @@ static async Task ApplyMigrationsResiliently(
             logger.LogInformation("All migrations applied successfully.");
             return;
         }
+        catch (MySqlConnector.MySqlException ex) when (ex.Number == 1118)
+        {
+            // Row size too large — a column that should be TEXT is still VARCHAR.
+            // This means a migration needs its large varchar columns converted to longtext.
+            logger.LogCritical(ex,
+                "Migration failed: row size too large in the target table. " +
+                "Ensure all varchar(≥500) columns use longtext in the migration file.");
+            throw;
+        }
         catch (MySqlConnector.MySqlException ex) when (ex.Number == 1050)
         {
             // Identify the first pending migration that caused the conflict and mark it

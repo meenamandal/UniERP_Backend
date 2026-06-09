@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -161,7 +161,7 @@ namespace ERP.Host.Migrations
                     StudentId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     StudentName = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     BlockId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    PurposeOfVisit = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
+                    PurposeOfVisit = table.Column<string>(type: "longtext", maxLength: 500, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     CheckInAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CheckOutAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     CheckedInBy = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
@@ -195,3 +195,4 @@ namespace ERP.Host.Migrations
         }
     }
 }
+

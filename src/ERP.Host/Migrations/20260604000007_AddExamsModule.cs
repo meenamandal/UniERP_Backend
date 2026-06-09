@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -98,7 +98,7 @@ namespace ERP.Host.Migrations
                     SeatNumber = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     HallTicketGenerated = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: false),
                     IsEligible = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
-                    IneligibilityReason = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    IneligibilityReason = table.Column<string>(type: "longtext", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
@@ -250,3 +250,4 @@ namespace ERP.Host.Migrations
         }
     }
 }
+

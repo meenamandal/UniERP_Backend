@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -57,7 +57,7 @@ namespace ERP.Host.Migrations
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     EntryNumber = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     EntryDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    Description = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "longtext", maxLength: 500, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     Reference = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     Status = table.Column<int>(type: "int", nullable: false),
                     TotalDebit = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -90,7 +90,7 @@ namespace ERP.Host.Migrations
                     AccountName = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     Debit = table.Column<decimal>(type: "decimal(18,2)", nullable: false, defaultValue: 0m),
                     Credit = table.Column<decimal>(type: "decimal(18,2)", nullable: false, defaultValue: 0m),
-                    Narration = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    Narration = table.Column<string>(type: "longtext", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
@@ -215,7 +215,7 @@ namespace ERP.Host.Migrations
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     StatementId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     TransactionDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    Description = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "longtext", maxLength: 500, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     Debit = table.Column<decimal>(type: "decimal(18,2)", nullable: false, defaultValue: 0m),
                     Credit = table.Column<decimal>(type: "decimal(18,2)", nullable: false, defaultValue: 0m),
                     Balance = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -262,3 +262,4 @@ namespace ERP.Host.Migrations
         }
     }
 }
+

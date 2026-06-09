@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -26,10 +26,10 @@ namespace ERP.Host.Migrations
                     CurrentJobTitle = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     CurrentCity = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     CurrentCountry = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false, defaultValue: "India").Annotation("MySql:CharSet", "utf8mb4"),
-                    LinkedInUrl = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    LinkedInUrl = table.Column<string>(type: "longtext", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     IsDirectoryVisible = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: true),
                     IsVerified = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: false),
-                    AvatarUrl = table.Column<string>(type: "varchar(1000)", maxLength: 1000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    AvatarUrl = table.Column<string>(type: "longtext", maxLength: 1000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
@@ -56,11 +56,11 @@ namespace ERP.Host.Migrations
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Title = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
-                    Description = table.Column<string>(type: "varchar(5000)", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "longtext", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     EventType = table.Column<int>(type: "int", nullable: false),
                     EventDate = table.Column<DateOnly>(type: "date", nullable: false),
                     EventTime = table.Column<TimeOnly>(type: "time(6)", nullable: true),
-                    VenueOrLink = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    VenueOrLink = table.Column<string>(type: "longtext", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     MaxParticipants = table.Column<int>(type: "int", nullable: true),
                     RegisteredCount = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     IsPublished = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: false),
@@ -123,7 +123,7 @@ namespace ERP.Host.Migrations
                 {
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Title = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
-                    Description = table.Column<string>(type: "varchar(5000)", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    Description = table.Column<string>(type: "longtext", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     TargetAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     CollectedAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false, defaultValue: 0m),
                     StartDate = table.Column<DateOnly>(type: "date", nullable: false),
@@ -199,3 +199,4 @@ namespace ERP.Host.Migrations
         }
     }
 }
+

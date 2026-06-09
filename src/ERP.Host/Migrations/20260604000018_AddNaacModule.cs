@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -44,7 +44,7 @@ namespace ERP.Host.Migrations
                     IndicatorNumber = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     Title = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     Content = table.Column<string>(type: "longtext", nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
-                    AutoMetrics = table.Column<string>(type: "varchar(5000)", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    AutoMetrics = table.Column<string>(type: "longtext", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     LastEditedBy = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     LastEditedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -84,9 +84,9 @@ namespace ERP.Host.Migrations
                     QueryNumber = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     CriterionNumber = table.Column<string>(type: "varchar(5)", maxLength: 5, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     IndicatorNumber = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
-                    QueryText = table.Column<string>(type: "varchar(5000)", maxLength: 5000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
-                    Response = table.Column<string>(type: "varchar(10000)", maxLength: 10000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
-                    SupportingDocUrls = table.Column<string>(type: "varchar(2000)", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    QueryText = table.Column<string>(type: "longtext", maxLength: 5000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
+                    Response = table.Column<string>(type: "longtext", maxLength: 10000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    SupportingDocUrls = table.Column<string>(type: "longtext", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     Status = table.Column<int>(type: "int", nullable: false),
                     ReceivedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     RespondedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
@@ -145,7 +145,7 @@ namespace ERP.Host.Migrations
                     AssignedTo = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     Content = table.Column<string>(type: "longtext", nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    ReviewComment = table.Column<string>(type: "varchar(2000)", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    ReviewComment = table.Column<string>(type: "longtext", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     ReviewedBy = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     ReviewedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -187,3 +187,4 @@ namespace ERP.Host.Migrations
         }
     }
 }
+

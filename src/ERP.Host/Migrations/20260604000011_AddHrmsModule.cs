@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -59,7 +59,7 @@ namespace ERP.Host.Migrations
                     Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     EmployeeId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     DocumentType = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
-                    BlobUrl = table.Column<string>(type: "varchar(1000)", maxLength: 1000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
+                    BlobUrl = table.Column<string>(type: "longtext", maxLength: 1000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     FileName = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -92,7 +92,7 @@ namespace ERP.Host.Migrations
                     DepartmentId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     Designation = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     NumberOfPositions = table.Column<int>(type: "int", nullable: false),
-                    JobDescription = table.Column<string>(type: "varchar(5000)", maxLength: 5000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
+                    JobDescription = table.Column<string>(type: "longtext", maxLength: 5000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     IsPublished = table.Column<bool>(type: "tinyint(1)", nullable: false, defaultValue: false),
                     ClosingDate = table.Column<DateOnly>(type: "date", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
@@ -118,12 +118,12 @@ namespace ERP.Host.Migrations
                     ApplicantName = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     ApplicantEmail = table.Column<string>(type: "varchar(320)", maxLength: 320, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     ApplicantMobile = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
-                    ResumeBlobUrl = table.Column<string>(type: "varchar(1000)", maxLength: 1000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    ResumeBlobUrl = table.Column<string>(type: "longtext", maxLength: 1000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     Status = table.Column<int>(type: "int", nullable: false),
                     InterviewDate = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    InterviewNotes = table.Column<string>(type: "varchar(2000)", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    InterviewNotes = table.Column<string>(type: "longtext", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     OfferSalary = table.Column<decimal>(type: "decimal(18,2)", nullable: true),
-                    RejectionReason = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    RejectionReason = table.Column<string>(type: "longtext", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
@@ -206,11 +206,11 @@ namespace ERP.Host.Migrations
                     FromDate = table.Column<DateOnly>(type: "date", nullable: false),
                     ToDate = table.Column<DateOnly>(type: "date", nullable: false),
                     TotalDays = table.Column<decimal>(type: "decimal(8,2)", nullable: false),
-                    Reason = table.Column<string>(type: "varchar(1000)", maxLength: 1000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
+                    Reason = table.Column<string>(type: "longtext", maxLength: 1000, nullable: false).Annotation("MySql:CharSet", "utf8mb4"),
                     Status = table.Column<int>(type: "int", nullable: false),
                     ApprovedBy = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     ApprovedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
-                    RejectionReason = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    RejectionReason = table.Column<string>(type: "longtext", maxLength: 500, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     CreatedBy = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
@@ -357,11 +357,11 @@ namespace ERP.Host.Migrations
                     EmployeeId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
                     ReviewYear = table.Column<int>(type: "int", nullable: false),
                     Status = table.Column<int>(type: "int", nullable: false),
-                    SelfAssessment = table.Column<string>(type: "varchar(5000)", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    SelfAssessment = table.Column<string>(type: "longtext", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     SelfRating = table.Column<decimal>(type: "decimal(3,1)", nullable: true),
-                    ManagerReview = table.Column<string>(type: "varchar(5000)", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    ManagerReview = table.Column<string>(type: "longtext", maxLength: 5000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     ManagerRating = table.Column<decimal>(type: "decimal(3,1)", nullable: true),
-                    HrComments = table.Column<string>(type: "varchar(2000)", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
+                    HrComments = table.Column<string>(type: "longtext", maxLength: 2000, nullable: true).Annotation("MySql:CharSet", "utf8mb4"),
                     FinalRating = table.Column<decimal>(type: "decimal(3,1)", nullable: true),
                     FinalReviewedBy = table.Column<Guid>(type: "char(36)", nullable: true, collation: "ascii_general_ci"),
                     FinalReviewedAt = table.Column<DateTime>(type: "datetime(6)", nullable: true),
@@ -398,3 +398,4 @@ namespace ERP.Host.Migrations
         }
     }
 }
+

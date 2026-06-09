@@ -41,36 +41,15 @@ public class DvvQueryConfiguration : IEntityTypeConfiguration<DvvQuery>
     public void Configure(EntityTypeBuilder<DvvQuery> builder)
     {
         builder.ToTable("dvv_queries");
-
         builder.HasKey(x => x.Id);
-
-        builder.Property(x => x.QueryNumber)
-            .HasMaxLength(50)
-            .IsRequired();
-
-        builder.Property(x => x.CriterionNumber)
-            .HasMaxLength(5)
-            .IsRequired();
-
-        builder.Property(x => x.IndicatorNumber)
-            .HasMaxLength(10)
-            .IsRequired();
-
-        builder.Property(x => x.QueryText)
-            .HasColumnType("TEXT")
-            .IsRequired();
-
-        builder.Property(x => x.Response)
-            .HasColumnType("LONGTEXT");
-
-        builder.Property(x => x.SupportingDocUrls)
-            .HasColumnType("TEXT");
-
-        builder.Property(x => x.Status)
-            .HasConversion<int>();
-
+        builder.Property(x => x.QueryNumber).HasMaxLength(50).IsRequired();
+        builder.Property(x => x.CriterionNumber).HasMaxLength(5).IsRequired();
+        builder.Property(x => x.IndicatorNumber).HasMaxLength(10).IsRequired();
+        builder.Property(x => x.QueryText).HasMaxLength(5000).IsRequired();
+        builder.Property(x => x.Response).HasMaxLength(10000);
+        builder.Property(x => x.SupportingDocUrls).HasMaxLength(2000);
+        builder.Property(x => x.Status).HasConversion<int>();
         builder.HasIndex(x => new { x.TenantId, x.SsrId });
-
         builder.HasIndex(x => new { x.TenantId, x.Status });
     }
 }

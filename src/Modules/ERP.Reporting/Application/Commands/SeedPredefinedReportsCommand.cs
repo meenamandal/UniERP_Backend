@@ -18,7 +18,10 @@ public class SeedPredefinedReportsHandler : IRequestHandler<SeedPredefinedReport
 
     public async Task<Result<int>> Handle(SeedPredefinedReportsCommand request, CancellationToken cancellationToken)
     {
+        // IgnoreQueryFilters: startup seeder has no HTTP context so ICurrentTenant
+        // resolves to Guid.Empty; the explicit TenantId condition still scopes correctly.
         var existingCodes = (await _db.ReportDefinitions
+            .IgnoreQueryFilters()
             .Where(x => x.TenantId == request.TenantId && !x.IsDeleted)
             .Select(x => x.Code)
             .ToListAsync(cancellationToken)).ToHashSet();
